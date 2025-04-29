@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <Header />
-        {children} // This is where the page content will be rendered
+        {children} 
       </body>
     </html>
   );
