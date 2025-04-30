@@ -19,7 +19,6 @@ export default function Teste() {
                 Página Cliente
             </h1>
 
-
             <button onClick={() => alert("TESTE")}>TESTE</button>
 
             <div className="flex flex-col gap-4 mt-4">

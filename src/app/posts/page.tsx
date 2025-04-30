@@ -1,3 +1,5 @@
+import Button from "@/components/button";
+
 interface PostProps {
     id: number;
     title: string;  
@@ -22,6 +24,9 @@ export default async function Posts() {
             <h1 className="text-4xl font-bold">
                 Todos os Posts
             </h1>
+            
+            <Button /> 
+            
             <div className="flex flex-col gap-4 mt-4">
                 {data.posts.map((post) => ( 
                     <div key={post.id} className="p-4 border rounded shadow-md">
