@@ -2,8 +2,9 @@ import { PostProps } from "../page";
 
 export default async function DetailPost({ params }: { params: { id: string } }) {
 
-    const { id } = params;
+    const { id } = await params;
 
+    await new Promise((resolve) => setTimeout(resolve, 4000)) // Simula um delay de 4 segundos
 
     const response = await fetch(`https://dummyjson.com/posts/${id}`)
     const data: PostProps = await response.json()
