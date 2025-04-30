@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Button() {
 
-    const [name, setName] = useState('Patrícia');
+    const [name, setName] = useState('Marvelous!');
 
     function handleClick() {
         setName('Precious!');
