@@ -1,6 +1,7 @@
 import Button from "@/components/button";
+import Link from "next/link";
 
-interface PostProps {
+export interface PostProps {
     id: number;
     title: string;
     body: string;
@@ -31,7 +32,6 @@ export default async function Posts() {
 
         const response = await fetch(`https://dummyjson.com/posts/user/${userId}`)
         const data: ResponseProps = await response.json()
-
 
         console.log(data)
         
@@ -72,6 +72,9 @@ export default async function Posts() {
                     <div key={post.id} className="p-4 border rounded shadow-md">
                         <h2 className="text-2xl font-semibold">{post.title}</h2>
                         <p>{post.body}</p>
+                        <Link href={`/posts/${post.id}`} className="text-blue-500 hover:underline">
+                        Acessar detalhes do post
+                        </Link>
                     </div>
                 ))}
             </div>
