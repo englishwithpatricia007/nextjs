@@ -1,5 +1,6 @@
 import Button from "@/components/button";
 import Link from "next/link";
+import { cache } from "react";
 
 export interface PostProps {
     id: number;
@@ -12,6 +13,9 @@ interface ResponseProps {
     posts: PostProps[];
 }
 
+export const revalidate = 60; // 1 minute
+
+
 //SERVER COMPONENT
 export default async function Posts() {
     const response = await fetch('https://dummyjson.com/posts')
@@ -20,7 +24,11 @@ export default async function Posts() {
 
     async function handleFetchPosts() {
         'use server'
-        const response = await fetch('https://dummyjson.com/posts')
+        const response = await fetch('https://dummyjson.com/posts', {cache : 'force-cache',
+            next: {
+                revalidate: 3600, // 1 hour
+            }
+        })
         const data: ResponseProps = await response.json()
 
         console.log(data.posts)
